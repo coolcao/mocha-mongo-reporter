@@ -28,7 +28,7 @@ function mocha_mongo_reporter(runner, options) {
   var runnerEnd=Q.defer(), 
       mongoConnect=Q.defer();
 
-  var mongoUrl=( options && options.url ) || process.env['MONGOURL'];
+  var mongoUrl=( options && options.reporterOption && options.reporterOption.url ) || process.env['MONGOURL'];
   debug("connecting to %s", mongoUrl);
 
   if(!(this instanceof mocha_mongo_reporter)) {
